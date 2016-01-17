@@ -1,0 +1,75 @@
+﻿别名
+#查看
+alias
+
+#删除别名
+unalias name
+#定义别名
+alias l="ls -l"
+
+#不是用别名，使用原意
+\vi #表示不是使用以vi开头的别名
+
+#查看命令类型
+type order_name
+
+************************************************************************************
+变量长度
+name="www.boobooke.com"
+
+#统计字符长度
+echo ${#name}
+
+#定义一个数组
+arr1=(a bb ccc dddd)
+
+#元素个数
+${#arr1[*]}
+
+#第一个元素的长度
+${#arr1}
+
+#获取数组中的内容
+echo ${myArr[*]}
+echo ${myArr[0]}
+
+************************************************************************************
+变量扩展
+#截取字符串长度
+${var:startIndex}
+
+${var:startIndex:length}
+
+#替换在var中匹配到第一个oldStr
+${var/oldStr/newStr}
+
+#全局替换
+${var//oldStr/newStr}
+
+vim 命令模式
+:s/q/a/g #单行全局替换
+:s/o/n #替换当前行第一个匹配到的o
+:%s/o/n/g #全文替换
+
+declare -i nu #定义指定类型变量 
+typeset -i nu #定义指定类型变量 
+
+-r #只读，等价于readonly var
+-i #整型
+-a #数组
+-f #函数
+-x #export
+
+#间接引用
+eval v1=\$$v2
+
+#日志文件记录
+ls  >>t1 2>>t2 #正确和错误日志分开（两个文件）
+ls >>t1 2>&1  #正确和错误日志一个文件
+
+set #显示所有本地定义的shell变量
+unset paramName #清除变量
+
+$RANDOM #产生随机数	
+
+

@@ -1,0 +1,55 @@
+﻿df #查看硬盘
+du #查看文件大小
+fdisk #分区工具
+fdisk -l
+fdisk /dev/sdb #进入分区模式
+	m #查看帮助信息
+	n #创建新分区
+	w #保存分区信息
+  d #删除分区
+ 
+parted
+	select /dev/sdb 选择硬盘
+	mklabel gpt/msdos 选择分区模式GPT/MBR
+	print [all] 查看分区信息
+	
+	mkpart 交互分区模式
+	mkpart name start end 命令分区模式
+	
+	rm number 删除分区
+	unit GB 修改大小单位
+	
+
+fdisk只能使用MBR
+parted即支持MBR也支持GPT 
+ 
+   
+分区模式之MBR
+ -主分区不超过4个
+ -单个分区最大容量2TB
+ 
+分区模式之GPT
+ -最多支持128个主分区
+ -单个分区容量几乎没限制(18EB)
+ 
+ 
+ 格式化磁盘
+ mkfs.ext4 /dev/sdb1
+ mkfs -t ext4 /dev/sdb1
+ 
+ 挂载分区
+ 默认挂载目录/mnt
+ mount /dev/sdb1 /mnt/shixuef #临时挂载，重启之后恢复
+ 重启自动挂载需要编辑/etc/fstb
+ 
+ 卸载
+ umount /mnt/shixuef
+ 
+ 建立swap分区
+ fdisk
+  t 修改分区类型
+  L 查看分区类型代码
+  mkswap /dev/sdb6 格式化分区
+  swapon /dev/sdb6 启用
+  swapoff /dev/sdb6 停用
+  free 查看

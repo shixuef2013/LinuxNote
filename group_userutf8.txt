@@ -1,0 +1,5 @@
+﻿/etc/group
+/etc/gshadow --保存组密码
+
+/etc/passwd
+/etc/shadow --保存用户密码

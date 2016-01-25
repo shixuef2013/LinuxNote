@@ -1,0 +1,25 @@
+﻿service network restart
+/etc/sysconfig/network-scripts/ifcfg-eth0:网卡信息配置文件
+/etc/resolve.conf : 配置DNS
+/etc/sysconfig/network : 配置主机信息
+
+桥接 --> 使用宿主机的真实网卡(可以通过编辑vm选择桥接的宿主机的哪个真实网卡上)
+NAT --> 使用wmnet8网卡
+host-only --> 使用wmnet1网卡
+
+service vsftpd start 开启ftp服务
+service vsftpd stop 关闭ftp服务
+
+nslookup [ip/域名] 查看DNS服务器或者解析域名
+
+traceroute -n ip/域名 路由跟踪命令
+
+tcpdump -i eth0 -nnX port 21 抓取端口号为21的数据包
+
+route -n 或者 netstat -rn 查看路由列表/网关
+
+ifdown eth0  禁用网卡
+ifup eth0  开启网卡
+
+service network restart 重启网络服务
+~                                      
